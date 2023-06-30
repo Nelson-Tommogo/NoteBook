@@ -25,15 +25,11 @@ const addNewNote = (text = '') => {
                 <textarea class=" ${ text ? "hidden": ""}"></textarea>   `;
 
     note.insertAdjacentHTML('afterbegin', htmlData);
-    // console.log(note);
-
-    // getting the References
     const editButton = note.querySelector('.edit');
     const deleteButton = note.querySelector('.delete');
     const mainDiv = note.querySelector('.main');
     const textArea = note.querySelector('textarea');
 
-    // deleting the node
     deleteButton.addEventListener('click', ()=>{
         note.remove();
         updateLocalStorageData(); 
@@ -49,7 +45,6 @@ const addNewNote = (text = '') => {
 
     textArea.addEventListener('change', (event)=>{
         const value = event.target.value;
-        // console.log(value);
         mainDiv.innerHTML = value;
         updateLocalStorageData(); 
      })
